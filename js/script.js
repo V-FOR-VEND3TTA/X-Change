@@ -1,4 +1,8 @@
-const dropList = document.querySelectorAll(".drop-list select");
+const dropList = document.querySelectorAll(".drop-list select"),
+fromCurrency = document.querySelector(".from select"),
+toCurrency = document.querySelector(".to select"),
+getButton = document.querySelector("form button");
+
 
 for (let i  = 0; i < dropList.length; i++) {
     for(currencyCode in countryCode) {
@@ -16,3 +20,19 @@ for (let i  = 0; i < dropList.length; i++) {
     }
 }
 
+getButton.addEventListener("click", e => {
+    e.preventDefault(); // Preventing the form from submitting
+    getExchangeRate();
+});
+
+function getExchangeRate() {
+    const amount = document.querySelector(".amount input");
+    let amountVal = amount.value;
+    // if the user doesn't enter any value or enter 0, we will have 1 by default
+    if (amountVal == "" || amountVal == "0") {
+        amount.value = "1";
+        amountVal = 1;
+    }
+    let url = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurrency.value}`;
+    fetch(url).then(response => console.log(response.json()))
+}

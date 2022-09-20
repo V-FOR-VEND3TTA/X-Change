@@ -54,7 +54,7 @@ form input {
 
 form input:focus {
     padding: 0 14px;
-    border: 2px solid #7c119f;
+    border: 2px solid rgb(30, 138, 226);
 }
 
 form .drop-list {
@@ -80,6 +80,21 @@ form .drop-list {
     margin: 0 -5px 0 5px;
 }
 
+/* Custom scrollbar */
+.select-box select::-webkit-scrollbar {
+    width: 8px;
+}
+
+.select-box select::-webkit-scrollbar-track {
+    background: rgb(30, 138, 226);
+}
+
+.select-box select::-webkit-scrollbar-thumb {
+    background: rgb(4, 35, 101);
+    border-radius: 8px;
+    border-right: 2px solid #fff;
+}
+
 .select-box img {
     max-width: 25px;
 }
@@ -92,7 +107,13 @@ form .drop-list {
 
 form .exchange-rate {
     font-size: 17px;
-    margin: 20px 0 30px;
+    margin: 20px 0 20px;
+}
+
+.last-updated p {
+    font-size: 12px;
+    color: #bbb;
+    margin-bottom: 20px;
 }
 
 form button {
